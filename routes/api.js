@@ -29,8 +29,17 @@ router.put("/api/workouts/:id", async (req, res) => {
 });
 
 //Get Last Workout
-router.get('/api/workouts', (req, res) => {
-  // const currentDate = Math.floor(Date.now() / 1000);
+router.get('/api/workouts/', (req, res) => {
+  db.Workout.find().then(data => {
+    res.status(201).json(data);
+  })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+//Get Range
+router.get('/api/workouts/range', (req, res) => {
   db.Workout.find().then(data => {
     res.status(201).json(data);
   })
@@ -48,13 +57,6 @@ router.get('/api/workouts/:id', (req, res) => {
     });
 });
 
-router.get('/api/workouts/range', (req, res) => {
-  db.Workout.find().then(data => {
-    res.status(201).json(data);
-  })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
+
 
 module.exports = router;
