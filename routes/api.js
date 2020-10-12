@@ -4,7 +4,7 @@ const moment = require("moment");
 
 router.post("/api/workouts", async (req, res) => {
   try {
-    const date = moment().format("YYYY-MM-DD HH:mm");
+    const date = moment().toISOString();
     const data = await db.Workout.create({ day: date });
     // console.log(data);
     res.status(201).json(data);
@@ -40,7 +40,18 @@ router.get('/api/workouts/', (req, res) => {
 
 //Get Range
 router.get('/api/workouts/range', (req, res) => {
+  const sunday = moment().day(0).toISOString();
+  const monday = moment().day(1).toISOString();
+  const tuesday = moment().day(2).toISOString();
+  const wednesday = moment().day(3).toISOString();
+  const thursday = moment().day(4).toISOString();
+  const friday = moment().day(5).toISOString();
+  const saturday = moment().day(6).toISOString();
+  const weekArr = [sunday, monday, tuesday, wednesday, thursday, friday, saturday];
+  // console.log(weekArr);
+
   db.Workout.find().then(data => {
+    console.log(data)
     res.status(201).json(data);
   })
     .catch(err => {

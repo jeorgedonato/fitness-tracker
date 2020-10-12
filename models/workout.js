@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
   day: {
-    type: String,
+    type: Date,
     required: true,
-    default: moment().format("YYYY-MM-DD HH:mm")
+    // default: moment().format("YYYY-MM-DD HH:mm")
   },
   totalDuration: {
     type: Number,
