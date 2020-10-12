@@ -1,6 +1,6 @@
 let mongoose = require("mongoose");
 let db = require("../models");
-
+let moment = require("moment")
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
@@ -8,7 +8,7 @@ mongoose.connect("mongodb://localhost/workout", {
 
 let workoutSeed = [
   {
-    day: new Date().setDate(new Date().getDate() - 10),
+    day: moment().subtract(10, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -21,7 +21,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate() - 9),
+    day: moment().subtract(9, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -34,7 +34,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate() - 8),
+    day: moment().subtract(8, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -47,7 +47,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate() - 7),
+    day: moment().subtract(7, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "cardio",
@@ -58,7 +58,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate() - 6),
+    day: moment().subtract(6, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -71,7 +71,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate() - 5),
+    day: moment().subtract(5, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -84,7 +84,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 4)),
+    day: moment().subtract(4, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -97,7 +97,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 3)),
+    day: moment().subtract(3, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
@@ -110,7 +110,20 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 2)),
+    day: moment().subtract(2, 'days').format("YYYY-MM-DD HH:mm"),
+    exercises: [
+      {
+        type: "resistance",
+        name: "Military Press",
+        duration: 20,
+        weight: 300,
+        reps: 10,
+        sets: 4
+      }
+    ]
+  },
+  {
+    day: moment().subtract(1, 'days').format("YYYY-MM-DD HH:mm"),
     exercises: [
       {
         type: "resistance",
