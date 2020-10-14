@@ -8,6 +8,10 @@ const workoutSchema = new Schema({
     required: true,
     // default: moment().format("YYYY-MM-DD HH:mm")
   },
+  dateTime: {
+    type: Number,
+    required: true
+  },
   totalDuration: {
     type: Number,
     default: 0
