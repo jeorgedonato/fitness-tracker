@@ -50,8 +50,7 @@ router.get('/api/workouts/range', (req, res) => {
   const weekArr = [sunday, monday, tuesday, wednesday, thursday, friday, saturday];
   // console.log(weekArr);
 
-  db.Workout.find().then(data => {
-    console.log(data)
+  db.Workout.find().limit(7).then(data => {
     res.status(201).json(data);
   })
     .catch(err => {
